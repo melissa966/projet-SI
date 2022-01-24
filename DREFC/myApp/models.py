@@ -13,7 +13,7 @@ class MembreEntreprise(models.Model):
     Nom_Entreprise=models.ForeignKey("Entreprise",on_delete=models.SET_NULL,null=TRUE,blank=True)
     
     def __str__(self):
-        return self.Nom_Membre_Entreprise+' '+self.Prenom_Membre_Entreprise
+        return '| Employer : '+ self.Nom_Membre_Entreprise+' '+self.Prenom_Membre_Entreprise+'| Entreprise : '+str(self.Nom_Entreprise) 
 
     
 
@@ -25,9 +25,10 @@ class Stage(models.Model):
     Note_Projet=models.PositiveBigIntegerField()
     membre_Entreprise_encadreur=models.ForeignKey("MembreEntreprise",on_delete=models.SET_NULL,null=TRUE,blank=True)
     Enseignant_promoteur=models.ForeignKey("Enseignants",on_delete=models.SET_NULL,null=TRUE,blank=True)
-    etudiant_Stagiaiare=models.ForeignKey("Stagiaire",on_delete=models.SET_NULL,null=TRUE,blank=True)
-    EvoluerM=models.ManyToManyField("MembreEntreprise",related_name="evoluerpar")
+    grp_etd=models.ManyToManyField("Stagiaire",related_name="FaitPar")
+    EvoluerM=models.ManyToManyField("MembreEntreprise",related_name="evoluer")
     EvoluerE=models.ManyToManyField("Enseignants",related_name="evoluerPar")
+    
     def __str__(self):
         return 'Type de stage :'+ self.TypeStage+' | Titre du projet : '+self.Titre_Projet+' | Date debut du stage : '+str(self.DateDeb_Stage)
 

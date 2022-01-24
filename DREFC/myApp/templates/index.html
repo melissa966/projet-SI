@@ -13,45 +13,54 @@
 	<title>Gestion des Stages de la DREFC</title>
   <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-  </style>
     
+  </style>
+   
+
 </head>
+
 <body class="w3-light-grey">
 
   <!-- Top container -->
+
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <span class="w3-bar-item w3-right" >site officielle de la DREFC </span>
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right w3-animate-bottom">Site officielle de la DREFC</span>
 </div>
-        
 
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      
+     
     </div>
     <div class="w3-col s8 w3-bar">
-      <span ><strong>Welcome, </strong></span><br>
+      <span ><strong><em>Welcome,</em> </strong></span><br>
+
     </div>
   </div>
   <hr>
 
     
-  <div class="w3-container">
-    <h5>Dashboard</h5>
-  </div>
+  <!--<div class="w3-container">
+    <h5>Menu</h5>
+  </div>-->
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Acceuil </a>
-    <a href="#entreprise" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Table Entreprise</a>
-    <a href="#membre" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Table memebre d'entreprise</a>
-    <a href="#enseignant" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Table enseignant</a>
-    <a href="#stagiaire" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Table stagiaire</a>
-    <a href="#stage" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Table Stage</a>
-    <a href="#contactUs" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Contact us</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Acceuil </a>
+    <a href="#entreprise" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table Entreprise</a>
+    <a href="#membre" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table memebre d'entreprise</a>
+    <a href="#enseignant" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table enseignant</a>
+    <a href="#stagiaire" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table stagiaire</a>
+    <a href="#stage" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table Stage</a>
+    <a href="stats" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Staistiques </a>
+    <a href="#contactUs" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Contact us</a>
   
   </div>
 </nav>
+
+
+
 
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -62,7 +71,7 @@
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px" id="acceuil" >
-    <!--<h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>-->
+    <h5><b><i class="fa fa-dashboard"></i> Acceuil </b></h5>
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
@@ -70,7 +79,7 @@
       <div class="w3-container w3-red w3-padding-16">
         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>1CPI</h3>
+          <h3  class="w3-animate-bottom">1CPI</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Stage</h4>
@@ -81,7 +90,7 @@
       <div class="w3-container w3-blue w3-padding-16">
         <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>1CS</h3>
+          <h3 class="w3-animate-bottom">1CS</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Stage</h4>
@@ -91,7 +100,7 @@
       <div class="w3-container w3-teal w3-padding-16">
         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>3CS</h3>
+          <h3 class="w3-animate-bottom">3CS</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Stage</h4>
@@ -110,17 +119,18 @@
     </div>
   </div>
 
+  <hr>
 <!--classe Entreprise-->
     <div class="container">
         <h2 id="entreprise"><u>Entreprises :</u></h2>
         
-        <table class="table  table-bordered  table-hover">
-          <thead>
+        <table class="table  table-bordered  table-hover" >
+          <thead >
             <tr>
-              <th><center>Identifiant de l'Entreprise </center></th>
-              <th><center>Nom</center></th>
-              <th><center> Adresse </center></th>
-              <th><center>Secteur d'activité </center></th>
+              <th  class="bg-white" ><center>Identifiant de l'Entreprise </center></th>
+              <th  class="bg-white"><center>Nom</center></th>
+              <th  class="bg-white"><center> Adresse </center></th>
+              <th  class="bg-white"><center>Secteur d'activité </center></th>
               
               
             </tr>
@@ -139,11 +149,11 @@
           </tbody>
           
         </table>
-        <a href="{% url 'createEntreprise' %}" type="button" class="btn btn-outline-danger pull-right">Ajouter une Entreprise </a> 
+        <a href="{% url 'createEntreprise' %}" type="button" class="btn btn-outline-danger pull-right ">Ajouter une Entreprise </a> 
       </div>
     <br>
 
-
+<hr>
 <!--classe membre Entreprise-->
 <div class="container">
   <h2 id="membre"><u>Membres d'Entreprise :</u></h2>
@@ -151,12 +161,12 @@
   <table class="table table-hover  table-bordered ">
     <thead>
       <tr>
-        <th><center>Identifiant de l'employé</center></th>
-        <th><center>Fonction</center></th>
-        <th><center>Nom</center></th>
-        <th><center>Prenom</center></th>
-        <th><center>adresse mail</center></th>
-        <th><center>Informations sur l'entreprise</center></th>
+        <th  class="bg-white"><center>Identifiant de l'employé</center></th>
+        <th  class="bg-white"><center>Fonction</center></th>
+        <th  class="bg-white"><center>Nom</center></th>
+        <th  class="bg-white"><center>Prenom</center></th>
+        <th  class="bg-white"><center>adresse mail</center></th>
+        <th  class="bg-white"><center>Informations sur l'entreprise</center></th>
         
        
       </tr>
@@ -183,7 +193,7 @@
 <br>
 
 
-
+<hr>
  <!--classe Enseignant-->
 
     <div class="container">
@@ -192,11 +202,11 @@
         <table class="table table-hover  table-bordered  ">
           <thead>
             <tr>
-              <th><center>Nom </center></th>
-              <th><center>Prenom</center></th>
-              <th><center>Grade(poste)</center></th>
-              <th><center>Université</center></th>
-              <th><center>Adresse Mail</center></th>
+              <th  class="bg-white"><center>Nom </center></th>
+              <th  class="bg-white"><center>Prenom</center></th>
+              <th  class="bg-white"><center>Grade(poste)</center></th>
+              <th  class="bg-white"><center>Université</center></th>
+              <th  class="bg-white"><center>Adresse Mail</center></th>
              
             </tr>
           </thead>
@@ -219,15 +229,7 @@
       </div>
      <br>
 
-
-     
-     
-     
-     
-     
-     
-     
-
+<hr>
    <!--classe Stagiaire-->
    <div class="container">
     <h2 id="stagiaire"><u>Etudiants Stagiaires :</u></h2>
@@ -235,14 +237,14 @@
     <table class="table table-hover  table-bordered ">
       <thead>
         <tr>
-          <th><center>Matricule de l'etudiant </center></th>
-          <th><center>Specialite</center></th>
-          <th><center>Prenom</center></th>
-          <th><center>Nom</center></th>
-          <th><center>Université</center></th>
-          <th><center>Date de naissance </center></th>
-          <th><center>Lieu de naissance </center></th>
-          <th><center>Adresse Mail</center></th>
+          <th  class="bg-white"><center>Matricule de l'etudiant </center></th>
+          <th  class="bg-white"><center>Specialite</center></th>
+          <th  class="bg-white"><center>Prenom</center></th>
+          <th  class="bg-white"><center>Nom</center></th>
+          <th  class="bg-white"><center>Université</center></th>
+          <th  class="bg-white"><center>Date de naissance </center></th>
+          <th  class="bg-white"><center>Lieu de naissance </center></th>
+          <th  class="bg-white"><center>Adresse Mail</center></th>
           
 
         </tr>
@@ -270,7 +272,7 @@
 <br>
 
 
-
+<hr>
 
     <!--classe Stage-->
     <div class="container">
@@ -279,16 +281,17 @@
       <table class="table table-hover table-bordered ">
         <thead>
           <tr>
-            <th><center>Type de Stage</center></th>
-            <th><center>Titre du projet</center> </th>
-            <th><center>Date debut de stage</center></th>
-            <th><center>Date depot du projet</center></th>
-            <th><center>Note du projet</center></th>
-            <th><center>Informations sur l'employé (Encadreur) </center></th>
-            <th><center>Indormations sur l'Enseignant (promoteur)</center></th>
-            <th><center>Informations sur l'Etudiant Stagiaiare</center></th>
-            <th><center>Evoluer par les employer suivants </center></th>
-            <th><center>Evoluer par les enseignants suivants </center></th>
+            <th  class="bg-white"><center>Type de Stage</center></th>
+            <th class="bg-white"><center>Titre du projet</center> </th>
+            <th class="bg-white"><center>Date debut de stage</center></th>
+            <th class="bg-white"><center>Date depot du projet</center></th>
+            <th class="bg-white"><center>Note du projet</center></th>
+            <th class="bg-white"><center>Informations sur l'employé (Encadreur) </center></th>
+            <th class="bg-white"><center>Indormations sur l'Enseignant (promoteur)</center></th>
+            <th class="bg-white"><center>Groupe d'etudiants :</center></th>
+            <th class="bg-white"><center>Evoluer par les enseignants suivants </center></th>
+            <th class="bg-white"><center>Evoluer par les employer suivants </center></th>
+            
           </tr>
         </thead>
         
@@ -302,9 +305,16 @@
             <td class="table-info"> {{item.Note_Projet}} </td>
             <td class="table-light"> {{item.membre_Entreprise_encadreur}} </td>
             <td class="table-secondary"> {{item.Enseignant_promoteur}} </td>
-            <td class="table-success"> {{item.etudiant_Stagiaiare}} </td>
-            <td class="table-danger"> {{item.evoluerM}} </td>
-            <td class="table-warning"> {{item.EvoluerE}} </td>
+            <td class="table-success"> {% for etd in item.grp_etd.all %}
+              {{ etd }} <br>
+              {% endfor %}</td>
+            <td class="table-danger">{% for prom in item.EvoluerE.all %}
+              {{ prom }} <br>
+              {% endfor %}</td>
+            <td class="table-warning">{% for enc in item.EvoluerM.all %}
+              {{ enc }} <br>
+              {% endfor %}</td>
+              
           </tr>  
           {% endfor %}   
         </tbody>

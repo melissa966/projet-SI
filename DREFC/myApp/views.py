@@ -74,3 +74,41 @@ def createStagiaiare (request):
     else:
         form=StagiaiareForms
         return render(request,'createStagiaiare.html',{"form":form})
+
+
+
+
+#new
+
+def stat(request):
+    stagess = Stage.objects.all()
+    entr = Entreprise.objects.all()
+
+    if request.method == "POST":
+        form=StageForms(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index1")
+    else:
+        form = StageForms
+
+    if request.method == "POST":
+        form=EntrepriseForms(request.POST)
+        if form.is_valid():
+             form.save()
+             form.save()
+             return redirect("index1")
+    else:
+        form = EntrepriseForms 
+
+    statistics = [0, 0, 0]
+    for stage in stagess : 
+        if stage.TypeStage == "1CS" :
+            statistics[0] = statistics[0] + 1
+        if stage.TypeStage == "3CS" :
+            statistics[1] = statistics[1] + 1
+        if stage.TypeStage == "1CPI" :
+            statistics[2] = statistics[2] + 1
+
+
+    return render(request,'myApp/index1.html',{'statistics':statistics,'entr':entr})
