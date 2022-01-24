@@ -11,6 +11,7 @@ class MembreEntreprise(models.Model):
     Prenom_Membre_Entreprise=models.CharField(max_length=50,null=False)
     Mail_Membre_Entreprise=models.EmailField(max_length=254)
     Nom_Entreprise=models.ForeignKey("Entreprise",on_delete=models.SET_NULL,null=TRUE,blank=True)
+    stagee=models.ForeignKey("Stage",on_delete=models.SET_NULL,null=TRUE,blank=True)
     
     def __str__(self):
         return '| Employer : '+ self.Nom_Membre_Entreprise+' '+self.Prenom_Membre_Entreprise+'| Entreprise : '+str(self.Nom_Entreprise) 
@@ -30,7 +31,7 @@ class Stage(models.Model):
     EvoluerE=models.ManyToManyField("Enseignants",related_name="evoluerPar")
     
     def __str__(self):
-        return 'Type de stage :'+ self.TypeStage+' | Titre du projet : '+self.Titre_Projet+' | Date debut du stage : '+str(self.DateDeb_Stage)
+        return 'Type de stage :'+ self.TypeStage+' | Titre du projet : '+self.Titre_Projet
 
 
 

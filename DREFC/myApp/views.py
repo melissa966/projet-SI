@@ -79,7 +79,6 @@ def createStagiaiare (request):
 
 
 #new
-
 def stat(request):
     stagess = Stage.objects.all()
     entr = Entreprise.objects.all()
@@ -90,8 +89,8 @@ def stat(request):
             form.save()
             return redirect("index1")
     else:
-        form = StageForms
-
+        form = StageForms    
+    
     if request.method == "POST":
         form=EntrepriseForms(request.POST)
         if form.is_valid():
@@ -109,6 +108,19 @@ def stat(request):
             statistics[1] = statistics[1] + 1
         if stage.TypeStage == "1CPI" :
             statistics[2] = statistics[2] + 1
+    
+    statisticss = [0, 0, 0,0,0]
+    for entreprise in entr : 
+        if entreprise.Secteur_Entreprise == "telecommunication" :
+            statisticss[0] = statisticss[0] + 1
+        if entreprise.Secteur_Entreprise == "sante" :
+            statisticss[1] = statisticss[1] + 1
+        if entreprise.Secteur_Entreprise == "banque" :
+            statisticss[2] = statisticss[2] + 1
+        if entreprise.Secteur_Entreprise == "administration" :
+            statisticss[3] = statisticss[3] + 1
+        if entreprise.Secteur_Entreprise == "energie" :
+            statisticss[4] = statisticss[4] + 1
 
-
-    return render(request,'myApp/index1.html',{'statistics':statistics,'entr':entr})
+        
+    return render(request,'myApp/index1.html',{'statistics':statistics,'statisticss':statisticss,'entr':entr})

@@ -25,7 +25,7 @@
 
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right w3-animate-bottom">Site officielle de la DREFC</span>
+  <span class="w3-bar-item w3-right w3-animate-bottom">&#9819; Site officielle de la DREFC &#9819;</span>
 </div>
 
 
@@ -36,7 +36,17 @@
      
     </div>
     <div class="w3-col s8 w3-bar">
-      <span ><strong><em>Welcome,</em> </strong></span><br>
+      <span ><strong><em>Welcome, &#127804; </em> </strong></span><br>
+      
+      <!--
+      <form action="URL" method="POST">
+        <input type="text" name="search" >
+      </form>
+-->
+<!--<a href="templates/Proposition de projet.pdf" download="Proposition de projet.pdf">
+  <img src="Proposition de projet.pdf">
+</a>-->
+
 
     </div>
   </div>
@@ -47,14 +57,14 @@
     <h5>Menu</h5>
   </div>-->
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Acceuil </a>
-    <a href="#entreprise" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table Entreprise</a>
-    <a href="#membre" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table memebre d'entreprise</a>
-    <a href="#enseignant" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table enseignant</a>
-    <a href="#stagiaire" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table stagiaire</a>
-    <a href="#stage" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Table Stage</a>
-    <a href="stats" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Staistiques </a>
-    <a href="#contactUs" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Contact us</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Acceuil </a>
+    <a href="#entreprise" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table Entreprise</a>
+    <a href="#membre" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table memebre d'entreprise</a>
+    <a href="#enseignant" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table enseignant</a>
+    <a href="#stagiaire" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table stagiaire</a>
+    <a href="#stage" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table Stage</a>
+    <a href="stats" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  &#128202; Statistiques </a>
+    <a href="#contactUs" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883;Contact us</a>
   
   </div>
 </nav>
@@ -167,6 +177,7 @@
         <th  class="bg-white"><center>Prenom</center></th>
         <th  class="bg-white"><center>adresse mail</center></th>
         <th  class="bg-white"><center>Informations sur l'entreprise</center></th>
+        <th  class="bg-white"><center>les stages prposée </center></th>
         
        
       </tr>
@@ -181,7 +192,7 @@
         <td class="table-danger"> {{item3.Prenom_Membre_Entreprise}} </td>
         <td class="table-warning"> {{item3.Mail_Membre_Entreprise}}  </td>
         <td class="table-info"> {{item3.Nom_Entreprise}} </td>
-        
+        <td class="table-primary"> {{item3.stagee}} </td>
        
       </tr>  
       {% endfor %}   
@@ -286,8 +297,8 @@
             <th class="bg-white"><center>Date debut de stage</center></th>
             <th class="bg-white"><center>Date depot du projet</center></th>
             <th class="bg-white"><center>Note du projet</center></th>
-            <th class="bg-white"><center>Informations sur l'employé (Encadreur) </center></th>
-            <th class="bg-white"><center>Indormations sur l'Enseignant (promoteur)</center></th>
+            <th class="bg-white"><center>Informations sur l'employé (promoteur) </center></th>
+            <th class="bg-white"><center>Indormations sur l'Enseignant (encadreur)</center></th>
             <th class="bg-white"><center>Groupe d'etudiants :</center></th>
             <th class="bg-white"><center>Evoluer par les enseignants suivants </center></th>
             <th class="bg-white"><center>Evoluer par les employer suivants </center></th>
@@ -339,6 +350,8 @@
    <h4>contact us</h4> 
 <p> Melissa MEBARKI | melissameb29@gmail.com | 191931069533</p>
 <p> Lamia SADAOUI | lamiasadaoui089@gmail.com | 191931017329</p>
+
+
   </div>
 </div>
 </div>
