@@ -4,6 +4,7 @@ from myApp.forms import EnseiganatForms
 from myApp.forms import EntrepriseForms
 from myApp.forms import MembreForms ,StageForms
 from .models import Enseignants, Entreprise, MembreEntreprise, Stage, Stagiaire
+from .forms import RegisterForms
 # Create your views here.
 
 
@@ -126,6 +127,7 @@ def stat(request):
     return render(request,'myApp/index1.html',{'statistics':statistics,'statisticss':statisticss,'entr':entr})
 
 
+
 def deleteEmployee(request,idf):
     print(idf)
     instance = MembreEntreprise.objects.get(Id_Membre_Entreprise=idf)
@@ -155,3 +157,16 @@ def deleteStage(request,idf):
     instance = Stage.objects.get(Titre_Projet=idf)
     instance.delete()
     return redirect("/")
+
+
+
+def register(response):
+    if response.method =="POST":
+        form= RegisterForms(response.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/login")
+    else:
+
+        form = RegisterForms()
+    return render(response,"register/register.html",{"form":form})

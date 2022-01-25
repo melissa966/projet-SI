@@ -19,6 +19,9 @@
 
 </head>
 
+{% block content %}
+{% endblock %}
+
 <body class="w3-light-grey">
 
   <!-- Top container -->
@@ -37,25 +40,14 @@
     </div>
     <div class="w3-col s8 w3-bar">
       <span ><strong><em>Welcome, &#127804; </em> </strong></span><br>
-      
-      <!--
-      <form action="URL" method="POST">
-        <input type="text" name="search" >
-      </form>
--->
-<!--<a href="templates/Proposition de projet.pdf" download="Proposition de projet.pdf">
-  <img src="Proposition de projet.pdf">
-</a>-->
+   
 
 
     </div>
   </div>
   <hr>
 
-    
-  <!--<div class="w3-container">
-    <h5>Menu</h5>
-  </div>-->
+  
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Acceuil </a>
     <a href="#entreprise" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table Entreprise</a>
@@ -64,6 +56,8 @@
     <a href="#stagiaire" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table stagiaire</a>
     <a href="#stage" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Table Stage</a>
     <a href="stats" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  &#128202; Statistiques </a>
+    <a href="register" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883; Créer un nouveau compte</a>
+    <a href="login" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883;Se conneceter à un autre compte</a>
     <a href="#contactUs" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> &#9883;Contact us</a>
   
   </div>
@@ -130,43 +124,6 @@
   </div>
 
   <hr>
-<!--classe Entreprise-->
-    <div class="container">
-        <h2 id="entreprise"><u>Entreprises :</u></h2>
-        
-        <table class="table  table-bordered  table-hover" >
-          <thead >
-            <tr>
-              <th  class="bg-white" ><center>Identifiant de l'Entreprise </center></th>
-              <th  class="bg-white"><center>Nom</center></th>
-              <th  class="bg-white"><center> Adresse </center></th>
-              <th  class="bg-white"><center>Secteur d'activité </center></th>
-              <th  class="bg-white"><center> Delete </center></th>
-              
-              
-            </tr>
-          </thead>
-          
-          <tbody>
-            {% for item2 in varEntreprise %}
-            <tr>
-              <td class="table-primary"> {{item2.Id_Entreprise}} </td>
-              <td class="table-secondary"> {{item2.Nom_Entreprise}} </td>
-              <td class="table-success"> {{item2.Adresse_Entreprise}} </td>
-              <td class="table-danger"> {{item2.Secteur_Entreprise}} </td>
-              <td> <center><a class="btn btn-danger" href="/entreprise/delete/{{item2.Id_Entreprise}}">Delete</a> </center></td>
-
-            
-            </tr>  
-            {% endfor %}   
-          </tbody>
-          
-        </table>
-        <a href="{% url 'createEntreprise' %}" type="button" class="btn btn-outline-danger ">Ajouter une Entreprise </a> 
-      </div>
-    <br>
-
-<hr>
 <!--classe membre Entreprise-->
 <div class="container">
   <h2 id="membre"><u>Membres d'Entreprise :</u></h2>
@@ -174,14 +131,14 @@
   <table class="table table-hover  table-bordered ">
     <thead>
       <tr>
-        <th  class="bg-white"><center>Identifiant de l'employé</center></th>
+        <th  class="bg-white"><center>Identifiant de l'employée</center></th>
         <th  class="bg-white"><center>Fonction</center></th>
         <th  class="bg-white"><center>Nom</center></th>
-        <th  class="bg-white"><center>Prenom</center></th>
-        <th  class="bg-white"><center>adresse mail</center></th>
+        <th  class="bg-white"><center>Prénom</center></th>
+        <th  class="bg-white"><center>Adresse e-mail</center></th>
         <th  class="bg-white"><center>Informations sur l'entreprise</center></th>
-        <th  class="bg-white"><center>les stages prposée </center></th>
-        <th class="bg-white"> <center>Delete </center></th>
+        <th  class="bg-white"><center>les stages prposées </center></th>
+        <th class="bg-white"> <center>Supprimer </center></th>
        
       </tr>
     </thead>
@@ -196,14 +153,14 @@
         <td class="table-warning"> {{item3.Mail_Membre_Entreprise}}  </td>
         <td class="table-info"> {{item3.Nom_Entreprise}} </td>
         <td class="table-primary"> {{item3.stagee}} </td>
-        <td> <a class="btn btn-danger" href="/MembreEntreprise/delete/{{ item3.Id_Membre_Entreprise}}">Delete</a> </td>
+        <td> <a class="btn btn-danger" href="/MembreEntreprise/delete/{{ item3.Id_Membre_Entreprise}}">Supprimer</a> </td>
        
       </tr>  
       {% endfor %}   
     </tbody>
     
   </table>
-  <a href="{% url 'create' %}" type="button" class="btn btn-outline-danger">Ajouter un membre </a>
+  <a href="{% url 'create' %}" type="button" class="btn btn-outline-danger">Ajouter un nouveau Membre </a>
 </div>
 <br>
 
@@ -218,11 +175,11 @@
           <thead>
             <tr>
               <th  class="bg-white"><center>Nom </center></th>
-              <th  class="bg-white"><center>Prenom</center></th>
+              <th  class="bg-white"><center>Prénom</center></th>
               <th  class="bg-white"><center>Grade(poste)</center></th>
               <th  class="bg-white"><center>Université</center></th>
-              <th  class="bg-white"><center>Adresse Mail</center></th>
-              <th  class="bg-white"><center>Delete</center></th>
+              <th  class="bg-white"><center>Adresse e-mail</center></th>
+              <th  class="bg-white"><center>Supprimer</center></th>
 
              
             </tr>
@@ -236,13 +193,13 @@
               <td class="table-success"> {{item4.Grade_Enseignant}} </td>
               <td class="table-danger"> {{item4.Université}} </td>
               <td class="table-warning"> {{item4.Mail_ens}}  </td>
-              <td> <center><a class="btn btn-danger" href="/enseignant/delete/{{ item4.Nom_Enseignant}}">Delete</a></center> </td>
+              <td> <center><a class="btn btn-danger" href="/enseignant/delete/{{ item4.Nom_Enseignant}}">Supprimer</a></center> </td>
             </tr>  
             {% endfor %}   
           </tbody>
           
         </table>
-        <a href="{% url 'createEnseiganat' %}" type="button" class="btn btn-outline-danger ">Ajouter un enseignant </a>
+        <a href="{% url 'createEnseiganat' %}" type="button" class="btn btn-outline-danger ">Ajouter un nouveau enseignant </a>
       </div>
      <br>
 
@@ -254,15 +211,15 @@
     <table class="table table-hover  table-bordered ">
       <thead>
         <tr>
-          <th  class="bg-white"><center>Matricule de l'etudiant </center></th>
-          <th  class="bg-white"><center>Specialite</center></th>
-          <th  class="bg-white"><center>Prenom</center></th>
+          <th  class="bg-white"><center>Matricule de l'étudiant </center></th>
+          <th  class="bg-white"><center>Specialité</center></th>
+          <th  class="bg-white"><center>Prénom</center></th>
           <th  class="bg-white"><center>Nom</center></th>
           <th  class="bg-white"><center>Université</center></th>
           <th  class="bg-white"><center>Date de naissance </center></th>
           <th  class="bg-white"><center>Lieu de naissance </center></th>
-          <th  class="bg-white"><center>Adresse Mail</center></th>
-          <th  class="bg-white"><center>Delete</center></th>
+          <th  class="bg-white"><center>Adresse e-mail</center></th>
+          <th  class="bg-white"><center>Supprimer</center></th>
 
         </tr>
       </thead>
@@ -274,11 +231,11 @@
           <td class="table-success">  {{item5.Specialite_Stagiaire}} </td>
           <td class="table-danger">{{item5.Prenom_Stagiaire}}  </td>
           <td class="table-warning"> {{item5.Nom_Stagiaire}}  </td>
-          <td class="table-warning"> {{item5.université}}  </td>
+          <td class="table-primary"> {{item5.université}}  </td>
           <td class="table-info"> {{item5.Datenaiss_Stagiaire}} </td>
           <td class="table-light">{{item5.Lieunaiss_Stagiaire}}   </td>
           <td class="table-secondary">{{item5.Mail}}  </td>
-          <td> <a class="btn btn-danger" href="/stagiaire/delete/{{item5.Matricule_Stagiaire}}">Delete</a> </td>
+          <td> <a class="btn btn-danger" href="/stagiaire/delete/{{item5.Matricule_Stagiaire}}">Supprimer</a> </td>
           
 
         </tr>  
@@ -286,7 +243,7 @@
       </tbody>
       
     </table>
-    <a href="{% url 'createStagiaiare' %}" type="button" class="btn btn-outline-danger ">Ajouter un satgiaiare </a> 
+    <a href="{% url 'createStagiaiare' %}" type="button" class="btn btn-outline-danger ">Ajouter un nouveau satgiaire</a> 
   </div>
 <br>
 
@@ -297,20 +254,20 @@
     <div class="container">
       <h2 id="stage"><u>Stages :</u></h2>
       
-      <table class="table table-hover table-bordered ">
+      <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th  class="bg-white"><center>Type de Stage</center></th>
             <th class="bg-white"><center>Titre du projet</center> </th>
-            <th class="bg-white"><center>Date debut de stage</center></th>
-            <th class="bg-white"><center>Date depot du projet</center></th>
+            <th class="bg-white"><center>Date de début du stage</center></th>
+            <th class="bg-white"><center>Date de dépot du projet</center></th>
             <th class="bg-white"><center>Note du projet</center></th>
-            <th class="bg-white"><center>Informations sur l'employé (promoteur) </center></th>
-            <th class="bg-white"><center>Indormations sur l'Enseignant (encadreur)</center></th>
-            <th class="bg-white"><center>Groupe d'etudiants :</center></th>
+            <th class="bg-white"><center>Les promoteurs</center></th>
+            <th class="bg-white"><center>Les encadreurs</center></th>
+            <th class="bg-white"><center>Groupe d'étudiants</center></th>
             <th class="bg-white"><center>Evoluer par les enseignants suivants </center></th>
             <th class="bg-white"><center>Evoluer par les employer suivants </center></th>
-            <th class="bg-white"><center>Delete</center></th>
+            <th class="bg-white"><center>Supprimer</center></th>
             
           </tr>
         </thead>
@@ -334,13 +291,13 @@
             <td class="table-warning">{% for enc in item.EvoluerM.all %}
               {{ enc }} <br>
               {% endfor %}</td>
-              <td> <a class="btn btn-danger" href="/stage/delete/{{item.Titre_Projet}}">Delete</a> </td>
+              <td> <a class="btn btn-danger" href="/stage/delete/{{item.Titre_Projet}}">Supprimer</a> </td>
           </tr>  
           {% endfor %}   
         </tbody>
         
       </table>
-      <a href="{% url 'createStage' %}" type="button" class="btn btn-outline-danger ">Ajouter un satge </a> 
+      <a href="{% url 'createStage' %}" type="button" class="btn btn-outline-danger ">Ajouter un nouveau satge </a> 
     </div>
 <br>
 
@@ -394,6 +351,12 @@
   }
   </script>
   
+
+
+
+
+
+
 
 </body>
 </html>
