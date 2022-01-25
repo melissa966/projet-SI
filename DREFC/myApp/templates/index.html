@@ -141,6 +141,7 @@
               <th  class="bg-white"><center>Nom</center></th>
               <th  class="bg-white"><center> Adresse </center></th>
               <th  class="bg-white"><center>Secteur d'activité </center></th>
+              <th  class="bg-white"><center> Delete </center></th>
               
               
             </tr>
@@ -153,13 +154,15 @@
               <td class="table-secondary"> {{item2.Nom_Entreprise}} </td>
               <td class="table-success"> {{item2.Adresse_Entreprise}} </td>
               <td class="table-danger"> {{item2.Secteur_Entreprise}} </td>
+              <td> <center><a class="btn btn-danger" href="/entreprise/delete/{{item2.Id_Entreprise}}">Delete</a> </center></td>
+
             
             </tr>  
             {% endfor %}   
           </tbody>
           
         </table>
-        <a href="{% url 'createEntreprise' %}" type="button" class="btn btn-outline-danger pull-right ">Ajouter une Entreprise </a> 
+        <a href="{% url 'createEntreprise' %}" type="button" class="btn btn-outline-danger ">Ajouter une Entreprise </a> 
       </div>
     <br>
 
@@ -178,7 +181,7 @@
         <th  class="bg-white"><center>adresse mail</center></th>
         <th  class="bg-white"><center>Informations sur l'entreprise</center></th>
         <th  class="bg-white"><center>les stages prposée </center></th>
-        
+        <th class="bg-white"> <center>Delete </center></th>
        
       </tr>
     </thead>
@@ -193,13 +196,14 @@
         <td class="table-warning"> {{item3.Mail_Membre_Entreprise}}  </td>
         <td class="table-info"> {{item3.Nom_Entreprise}} </td>
         <td class="table-primary"> {{item3.stagee}} </td>
+        <td> <a class="btn btn-danger" href="/MembreEntreprise/delete/{{ item3.Id_Membre_Entreprise}}">Delete</a> </td>
        
       </tr>  
       {% endfor %}   
     </tbody>
     
   </table>
-  <a href="{% url 'create' %}" type="button" class="btn btn-outline-danger pull-right">Ajouter un membre </a>
+  <a href="{% url 'create' %}" type="button" class="btn btn-outline-danger">Ajouter un membre </a>
 </div>
 <br>
 
@@ -218,6 +222,8 @@
               <th  class="bg-white"><center>Grade(poste)</center></th>
               <th  class="bg-white"><center>Université</center></th>
               <th  class="bg-white"><center>Adresse Mail</center></th>
+              <th  class="bg-white"><center>Delete</center></th>
+
              
             </tr>
           </thead>
@@ -230,13 +236,13 @@
               <td class="table-success"> {{item4.Grade_Enseignant}} </td>
               <td class="table-danger"> {{item4.Université}} </td>
               <td class="table-warning"> {{item4.Mail_ens}}  </td>
-             
+              <td> <center><a class="btn btn-danger" href="/enseignant/delete/{{ item4.Nom_Enseignant}}">Delete</a></center> </td>
             </tr>  
             {% endfor %}   
           </tbody>
           
         </table>
-        <a href="{% url 'createEnseiganat' %}" type="button" class="btn btn-outline-danger pull-right">Ajouter un enseignant </a>
+        <a href="{% url 'createEnseiganat' %}" type="button" class="btn btn-outline-danger ">Ajouter un enseignant </a>
       </div>
      <br>
 
@@ -256,7 +262,7 @@
           <th  class="bg-white"><center>Date de naissance </center></th>
           <th  class="bg-white"><center>Lieu de naissance </center></th>
           <th  class="bg-white"><center>Adresse Mail</center></th>
-          
+          <th  class="bg-white"><center>Delete</center></th>
 
         </tr>
       </thead>
@@ -272,13 +278,15 @@
           <td class="table-info"> {{item5.Datenaiss_Stagiaire}} </td>
           <td class="table-light">{{item5.Lieunaiss_Stagiaire}}   </td>
           <td class="table-secondary">{{item5.Mail}}  </td>
+          <td> <a class="btn btn-danger" href="/stagiaire/delete/{{item5.Matricule_Stagiaire}}">Delete</a> </td>
+          
 
         </tr>  
         {% endfor %}   
       </tbody>
       
     </table>
-    <a href="{% url 'createStagiaiare' %}" type="button" class="btn btn-outline-danger pull-right">Ajouter un satgiaiare </a> 
+    <a href="{% url 'createStagiaiare' %}" type="button" class="btn btn-outline-danger ">Ajouter un satgiaiare </a> 
   </div>
 <br>
 
@@ -302,6 +310,7 @@
             <th class="bg-white"><center>Groupe d'etudiants :</center></th>
             <th class="bg-white"><center>Evoluer par les enseignants suivants </center></th>
             <th class="bg-white"><center>Evoluer par les employer suivants </center></th>
+            <th class="bg-white"><center>Delete</center></th>
             
           </tr>
         </thead>
@@ -325,13 +334,13 @@
             <td class="table-warning">{% for enc in item.EvoluerM.all %}
               {{ enc }} <br>
               {% endfor %}</td>
-              
+              <td> <a class="btn btn-danger" href="/stage/delete/{{item.Titre_Projet}}">Delete</a> </td>
           </tr>  
           {% endfor %}   
         </tbody>
         
       </table>
-      <a href="{% url 'createStage' %}" type="button" class="btn btn-outline-danger pull-right">Ajouter un satge </a> 
+      <a href="{% url 'createStage' %}" type="button" class="btn btn-outline-danger ">Ajouter un satge </a> 
     </div>
 <br>
 

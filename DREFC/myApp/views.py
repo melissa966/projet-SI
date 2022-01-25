@@ -124,3 +124,34 @@ def stat(request):
 
         
     return render(request,'myApp/index1.html',{'statistics':statistics,'statisticss':statisticss,'entr':entr})
+
+
+def deleteEmployee(request,idf):
+    print(idf)
+    instance = MembreEntreprise.objects.get(Id_Membre_Entreprise=idf)
+    instance.delete()
+    return redirect("/")
+
+def deleteEntreprise(request,idf):
+    print(idf)
+    instance = Entreprise.objects.get(Id_Entreprise=idf)
+    instance.delete()
+    return redirect("/")
+
+def deleteEnseignant(request,idf):
+    print(idf)
+    instance = Enseignants.objects.get(Nom_Enseignant=idf)
+    instance.delete()
+    return redirect("/")
+
+def deleteStagiaire(request,idf):
+    print(idf)
+    instance = Stagiaire.objects.get(Matricule_Stagiaire=idf)
+    instance.delete()
+    return redirect("/")
+
+def deleteStage(request,idf):
+    print(idf)
+    instance = Stage.objects.get(Titre_Projet=idf)
+    instance.delete()
+    return redirect("/")
