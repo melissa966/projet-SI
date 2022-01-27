@@ -123,6 +123,44 @@
     </div>
   </div>
 
+<hr>
+
+<!--classe Entreprise-->
+<div class="container">
+  <h2 id="entreprise"><u>Entreprises :</u></h2>
+  
+  <table class="table table-hover  table-bordered ">
+    <thead>
+      <tr>
+        <th  class="bg-white"><center>Identifiant de l'entreprise</center></th>
+        <th  class="bg-white"><center>Nom de l'entreprise</center></th>
+        <th  class="bg-white"><center>Adresse de l'entreprise</center></th>
+        <th  class="bg-white"><center>Secteur de l'entreprise</center></th>
+        <th class="bg-white"> <center>Supprimer </center></th>
+       
+      </tr>
+    </thead>
+    
+    <tbody>
+      {% for item2 in varEntreprise %}
+      <tr>
+        <td class="table-primary"> {{item2.Id_Entreprise}} </td>
+        <td class="table-secondary"> {{item2.Nom_Entreprise}} </td>
+        <td class="table-success"> {{item2.Adresse_Entreprise}} </td>
+        <td class="table-danger"> {{item2.Secteur_Entreprise}} </td>
+        <td> <a class="btn btn-danger" href="/entreprise/delete/{{ item2.Id_Entreprise}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')">Supprimer</a> </td>
+     
+      </tr>  
+      {% endfor %}   
+    </tbody>
+    
+  </table>
+  <a href="{% url 'createEntreprise' %}" type="button" class="btn btn-outline-danger">Ajouter une nouvelle entreprise </a>
+</div>
+<br>
+
+
+
   <hr>
 <!--classe membre Entreprise-->
 <div class="container">
@@ -153,8 +191,8 @@
         <td class="table-warning"> {{item3.Mail_Membre_Entreprise}}  </td>
         <td class="table-info"> {{item3.Nom_Entreprise}} </td>
         <td class="table-primary"> {{item3.stagee}} </td>
-        <td> <a class="btn btn-danger" href="/MembreEntreprise/delete/{{ item3.Id_Membre_Entreprise}}">Supprimer</a> </td>
-       
+        <td> <a class="btn btn-danger" href="/MembreEntreprise/delete/{{ item3.Id_Membre_Entreprise}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')">Supprimer</a> </td>
+     
       </tr>  
       {% endfor %}   
     </tbody>
@@ -193,7 +231,7 @@
               <td class="table-success"> {{item4.Grade_Enseignant}} </td>
               <td class="table-danger"> {{item4.Université}} </td>
               <td class="table-warning"> {{item4.Mail_ens}}  </td>
-              <td> <center><a class="btn btn-danger" href="/enseignant/delete/{{ item4.Nom_Enseignant}}">Supprimer</a></center> </td>
+              <td> <center><a class="btn btn-danger" href="/enseignant/delete/{{ item4.Nom_Enseignant}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')">Supprimer</a></center> </td>
             </tr>  
             {% endfor %}   
           </tbody>
@@ -235,7 +273,7 @@
           <td class="table-info"> {{item5.Datenaiss_Stagiaire}} </td>
           <td class="table-light">{{item5.Lieunaiss_Stagiaire}}   </td>
           <td class="table-secondary">{{item5.Mail}}  </td>
-          <td> <a class="btn btn-danger" href="/stagiaire/delete/{{item5.Matricule_Stagiaire}}">Supprimer</a> </td>
+          <td> <a class="btn btn-danger" href="/stagiaire/delete/{{item5.Matricule_Stagiaire}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')">Supprimer</a> </td>
           
 
         </tr>  
@@ -291,7 +329,7 @@
             <td class="table-warning">{% for enc in item.EvoluerM.all %}
               {{ enc }} <br>
               {% endfor %}</td>
-              <td> <a class="btn btn-danger" href="/stage/delete/{{item.Titre_Projet}}">Supprimer</a> </td>
+              <td> <a class="btn btn-danger" href="/stage/delete/{{item.Titre_Projet}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')">Supprimer</a> </td>
           </tr>  
           {% endfor %}   
         </tbody>

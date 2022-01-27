@@ -9,16 +9,20 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<title>Ajouter une Entreprise </title>
-    
+    <style>
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      
+    </style>
 </head>
 <body>
     <br>
     <!-- Top container -->
+    
  <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-    <span class="w3-bar-item w3-right">site officielle de la DREFC </span>
+    <span class="w3-bar-item w3-right">&#9819; Site officielle de la DREFC &#9819; </span>
   </div>
         <br> 
-<h3 class="container">Pour pouvoir ajouter une nouvelle entreprise, Veuillez remplir le formualire suivant :</h3>
+        <h3 class="container">Pour pouvoir ajouter une nouvelle entreprise, Veuillez remplir le formualire suivant :</h3>
 
     <form method="POST"  class="container"> 
         {% csrf_token %} <br>
